@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Word Scramblle</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="any">
+</head>
+
+<body>
+
+    <main>
+        <div class="game-main">
+            <div class="language-container">
+                <select id="select-language">
+                    <option value="english" selected>English</option>
+                    <option value="spanish">Spanish</option>
+                </select>
+            </div>
+            <img src="/images/Word Scramblle.svg" alt="">
+            <div class="score">
+                <div class="right">
+                    <h3>Right</h3>
+                    <span>0</span>
+                </div>
+                <div class="wrong">
+                    <h3>Wrong</h3>
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="display"></div>
+            <div class="result">
+                <div class="tries">
+                    <p>Tries:</p>
+                    <span class="active"></span>
+                    <span class="active"></span>
+                    <span class="active"></span>
+                    <span class="active"></span>
+                    <span class="active"></span>
+                </div>
+                <div class="mistakes"></div>
+            </div>
+            <input type="text" maxlength="1">
+            <div class="screen"></div>
+            <div class="buttons">
+                <button class="random">Random</button>
+                <button class="reset">Reset</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

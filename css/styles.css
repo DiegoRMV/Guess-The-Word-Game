@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+	--color-1: #7429c6;
+	--color-2: #c951e7;
+	--color-3: #672171;
+	--color-4: #4a5567;
+	--color-5: #97a3b6;
+	--color-6: #030616;
+	--color-7: #f2f5f9;
+	--font-family: "Outfit";
+	--text-large: 2rem;
+	--text-medium: 1.25rem;
+	--text-small: 0.75rem;
+	--text-button: 0.875rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100vh;
+	max-width: 1440px;
+	margin: 0 auto;
+	background: #020617;
+	background-image: url("/images/bg-guess-the-word.png");
+	background-repeat: no-repeat;
+	background-origin: border-box;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	font-family: "Outfit", sans-serif;
+}
+
+main {
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.language-container {
+	display: flex;
+	justify-content: end;
+}
+
+.language-container select {
+	padding: 0.2rem 0.5rem;
+	border-radius: 0.3rem;
+	border: none;
+	background-color: #292323;
+	color: #f2f5f9;
+}
+
+.language-container option {
+	background-color: transparent;
+}
+
+.game-main {
+	min-width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: var(--color-6);
+	padding: 2rem;
+	border-radius: 16px;
+	gap: 2rem;
+}
+
+img {
+	width: 200px;
+	margin: 0 auto;
+}
+
+.score {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.score div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-5);
+}
+
+.score span {
+	color: var(--color-7);
+}
+
+.message {
+	text-align: center;
+	background-color: aquamarine;
+	color: var(--color-7);
+}
+
+.display {
+	width: 100%;
+	min-height: 60px;
+	display: flex;
+	justify-content: center;
+	background-color: var(--color-4);
+	border-radius: 0.3rem;
+	color: var(--color-5);
+	border: 2px solid var(--color-4);
+	font-size: var(--text-large);
+	letter-spacing: 1rem;
+	text-align: center;
+	padding: 0.5rem 1rem 0.5rem 2rem;
+	word-break: break-all;
+}
+
+.success {
+	background-color: rgba(103, 255, 141, 0.315);
+	border: 2px solid rgba(12, 238, 69, 0.884);
+}
+
+.error {
+	background-color: rgba(253, 119, 119, 0.301);
+	border: 2px solid rgba(241, 31, 31, 0.884);
+}
+
+input {
+	position: absolute;
+	z-index: -99;
+	opacity: 0;
+}
+
+.result {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.result div {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.result p {
+	display: flex;
+	font-size: var(--text-small);
+	color: var(--color-4);
+}
+
+.tries span {
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+}
+
+.mistakes span {
+	display: inline-block;
+	font-size: var(--text-medium);
+	color: var(--color-5);
+}
+
+.active {
+	background-color: var(--color-1);
+}
+
+.desactive {
+	background-color: var(--color-5);
+}
+
+.screen {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	color: var(--color-7);
+}
+
+.screen div {
+	width: 2.8rem;
+	height: 2.5rem;
+	padding: 0.3rem 0.8rem;
+	display: flex;
+	justify-content: center;
+	border: 2px solid var(--color-4);
+	background-color: transparent;
+	border-radius: 7px;
+	cursor: pointer;
+	outline: none;
+}
+
+.screen span {
+	width: 100%;
+	font-size: var(--text-medium);
+	text-align: center;
+	color: var(--color-7);
+}
+
+.buttons {
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.buttons button {
+	min-width: 120px;
+	border: none;
+	border-radius: 6px;
+	padding: 0.6rem 2rem;
+	font-size: var(--text-button);
+	color: var(--color-7);
+	background-color: var(--color-2);
+	transition: all 0.4s ease;
+}
+
+.buttons button:hover {
+	transform: translatey(-3px);
+	box-shadow: 0 3px 0 0 var(--color-3);
+}
+
+.blink {
+	animation: blink 0.6s linear infinite;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
