@@ -158,7 +158,6 @@ const load = async () => {
 	word = wordRandom;
 	let wordShuffle = shuffle(wordRandom);
 
-
 	display.innerText = wordShuffle;
 	for (let i = 0; i < word.length; i++) {
 		const screenDiv = document.createElement("div");
@@ -245,3 +244,5 @@ btnLanguage.addEventListener("change", handleLanguage);
 input.addEventListener("input", initGame);
 
 document.addEventListener("keydown", () => input.focus());
+
+screen.addEventListener("click", () => input.focus());
