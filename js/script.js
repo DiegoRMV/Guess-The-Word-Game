@@ -1,96 +1,54 @@
 let words = [
-	{
-		word: "addition",
-		hint: "The process of adding numbers",
-	},
-	{
-		word: "meeting",
-		hint: "Event in which people come together",
-	},
-	{
-		word: "number",
-		hint: "Math symbol used for counting",
-	},
-	{
-		word: "exchange",
-		hint: "The act of trading",
-	},
-	{
-		word: "canvas",
-		hint: "Piece of fabric for oil painting",
-	},
-	{
-		word: "garden",
-		hint: "Space for planting flower and plant",
-	},
-	{
-		word: "position",
-		hint: "Location of someone or something",
-	},
-	{
-		word: "feather",
-		hint: "Hair like outer covering of bird",
-	},
-	{
-		word: "comfort",
-		hint: "A pleasant feeling of relaxation",
-	},
-	{
-		word: "tongue",
-		hint: "The muscular organ of mouth",
-	},
-	{
-		word: "expansion",
-		hint: "The process of increase or grow",
-	},
-	{
-		word: "country",
-		hint: "A politically identified region",
-	},
-	{
-		word: "group",
-		hint: "A number of objects or persons",
-	},
-	{
-		word: "taste",
-		hint: "Ability of tongue to detect flavour",
-	},
-	{
-		word: "store",
-		hint: "Large shop where goods are traded",
-	},
-	{
-		word: "field",
-		hint: "Area of land for farming activities",
-	},
-	{
-		word: "friend",
-		hint: "Person other than a family member",
-	},
-	{
-		word: "pocket",
-		hint: "A bag for carrying small items",
-	},
-	{
-		word: "needle",
-		hint: "A thin and sharp metal pin",
-	},
-	{
-		word: "expert",
-		hint: "Person with extensive knowledge",
-	},
-	{
-		word: "statement",
-		hint: "A declaration of something",
-	},
-	{
-		word: "second",
-		hint: "One-sixtieth of a minute",
-	},
-	{
-		word: "library",
-		hint: "Place containing collection of books",
-	},
+	{ English: "Table", Spanish: "Mesa" },
+	{ English: "Chair", Spanish: "Silla" },
+	{ English: "Lamp", Spanish: "Lámpara" },
+	{ English: "Door", Spanish: "Puerta" },
+	{ English: "Window", Spanish: "Ventana" },
+	{ English: "Book", Spanish: "Libro" },
+	{ English: "Pen", Spanish: "Bolígrafo" },
+	{ English: "Pencil", Spanish: "Lápiz" },
+	{ English: "Notebook", Spanish: "Cuaderno" },
+	{ English: "Backpack", Spanish: "Mochila" },
+	{ English: "Computer", Spanish: "Computadora" },
+	{ English: "Mouse", Spanish: "Ratón" },
+	{ English: "Keyboard", Spanish: "Teclado" },
+	{ English: "Phone", Spanish: "Teléfono" },
+	{ English: "Television", Spanish: "Televisión" },
+	{ English: "Remote", Spanish: "Control remoto" },
+	{ English: "Clock", Spanish: "Reloj" },
+	{ English: "Watch", Spanish: "Reloj de pulsera" },
+	{ English: "Glasses", Spanish: "Gafas" },
+	{ English: "Bottle", Spanish: "Botella" },
+	{ English: "Cup", Spanish: "Taza" },
+	{ English: "Plate", Spanish: "Plato" },
+	{ English: "Fork", Spanish: "Tenedor" },
+	{ English: "Knife", Spanish: "Cuchillo" },
+	{ English: "Spoon", Spanish: "Cuchara" },
+	{ English: "Napkin", Spanish: "Servilleta" },
+	{ English: "Tablecloth", Spanish: "Mantel" },
+	{ English: "Bed", Spanish: "Cama" },
+	{ English: "Pillow", Spanish: "Almohada" },
+	{ English: "Blanket", Spanish: "Manta" },
+	{ English: "Sheet", Spanish: "Sábana" },
+	{ English: "Wardrobe", Spanish: "Armario" },
+	{ English: "Mirror", Spanish: "Espejo" },
+	{ English: "Shower", Spanish: "Ducha" },
+	{ English: "Sink", Spanish: "Lavabo" },
+	{ English: "Toilet", Spanish: "Inodoro" },
+	{ English: "Towel", Spanish: "Toalla" },
+	{ English: "Soap", Spanish: "Jabón" },
+	{ English: "Shampoo", Spanish: "Champú" },
+	{ English: "Conditioner", Spanish: "Acondicionador" },
+	{ English: "Toothbrush", Spanish: "Cepillo de dientes" },
+	{ English: "Toothpaste", Spanish: "Pasta de dientes" },
+	{ English: "Comb", Spanish: "Peine" },
+	{ English: "Hairdryer", Spanish: "Secador de pelo" },
+	{ English: "Trash can", Spanish: "Basurero" },
+	{ English: "Light bulb", Spanish: "Bombilla" },
+	{ English: "Fan", Spanish: "Ventilador" },
+	{ English: "Curtains", Spanish: "Cortinas" },
+	{ English: "Rug", Spanish: "Alfombra" },
+	{ English: "Shelf", Spanish: "Estante" },
 ];
 
 const right = document.querySelector(".right span");
@@ -109,7 +67,7 @@ const touchHtml = (id) =>
 let word = "";
 let incorrects = [];
 let corrects = [];
-let language = "english";
+let language = "English";
 let wr = 0;
 let rg = 0;
 let url = `https://random-word-api.herokuapp.com/word`;
@@ -121,7 +79,7 @@ const handleLanguage = () => {
 	let option = btnLanguage.options[indice];
 	language = option.value;
 
-	if (language === "spanish") {
+	if (language === "Spanish") {
 		url = `https://clientes.api.greenborn.com.ar/public-random-word`;
 	} else {
 		url = `https://random-word-api.herokuapp.com/word`;
@@ -153,13 +111,13 @@ const load = async () => {
 	display.innerHTML = "";
 	word = "";
 
-	// let wordRandom = words[Math.floor(Math.random() * words.length)].word;
-	let wordRandom = await fetchWordRandom();
+	let wordRandom = words[Math.floor(Math.random() * words.length)][language];
+	// let wordRandom = await fetchWordRandom();
 	word = wordRandom;
 	console.log(word);
 	let wordShuffle = shuffle(wordRandom);
 
-	display.innerText = wordShuffle;
+	display.innerText = wordShuffle.toLowerCase();
 	for (let i = 0; i < word.length; i++) {
 		const screenDiv = document.createElement("div");
 		const screenSpan = document.createElement("span");
@@ -203,7 +161,7 @@ const initGame = (e) => {
 	input.value = "";
 
 	if (wordKeys.length === word.length) {
-		display.innerText = word;
+		display.innerText = word.toLowerCase();
 		input.disabled = true;
 		let strWordKeys = wordKeys.join("");
 		let wordInput = strWordKeys
@@ -211,7 +169,7 @@ const initGame = (e) => {
 			.replace(/[\u0300-\u036f]/g, "");
 		let wordOrigin = word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-		if (wordInput.toLowerCase() == wordOrigin) {
+		if (wordInput.toLowerCase() == wordOrigin.toLowerCase()) {
 			display.classList.add("success");
 			right.innerText = ++rg;
 			i = 0;
