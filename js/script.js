@@ -156,6 +156,7 @@ const load = async () => {
 	// let wordRandom = words[Math.floor(Math.random() * words.length)].word;
 	let wordRandom = await fetchWordRandom();
 	word = wordRandom;
+	console.log(word);
 	let wordShuffle = shuffle(wordRandom);
 
 	display.innerText = wordShuffle;
@@ -204,7 +205,13 @@ const initGame = (e) => {
 	if (wordKeys.length === word.length) {
 		display.innerText = word;
 		input.disabled = true;
-		if (wordKeys.join("") == word) {
+		let strWordKeys = wordKeys.join("");
+		let wordInput = strWordKeys
+			.normalize("NFD")
+			.replace(/[\u0300-\u036f]/g, "");
+		let wordOrigin = word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+		if (wordInput.toLowerCase() == wordOrigin) {
 			display.classList.add("success");
 			right.innerText = ++rg;
 			i = 0;
@@ -245,4 +252,8 @@ input.addEventListener("input", initGame);
 
 document.addEventListener("keydown", () => input.focus());
 
-screen.addEventListener("click", () => input.focus());
+screen.addEventListener("click", () => {
+	input.focus();
+	screen.children[0].children[0].className = "blink";
+	screen.children[0].children[0].style.borderBottom = "2px solid white";
+});

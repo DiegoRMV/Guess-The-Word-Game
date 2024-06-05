@@ -52,7 +52,23 @@ main {
 
 .language-container {
 	display: flex;
-	justify-content: end;
+	justify-content: space-between;
+}
+
+.language-container a {
+	text-decoration: none;
+	color: rgb(79, 235, 238);
+	padding: 0.2rem 0.5rem;
+	background-color: #292323;
+	border-radius: 0.3rem;
+	border: 1px solid rgb(79, 235, 238);
+	transition: all 0.4s ease;
+}
+
+.language-container a:hover {
+	text-decoration: none;
+	color: black;
+	background-color: #f2f5f9;
 }
 
 .language-container select {
@@ -61,10 +77,11 @@ main {
 	border: none;
 	background-color: #292323;
 	color: #f2f5f9;
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
-
-.language-container option {
-	background-color: transparent;
+.language-container select:hover {
+	opacity: 75%;
 }
 
 .game-main {
